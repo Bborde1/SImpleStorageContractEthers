@@ -43,7 +43,7 @@ async function main() {
   // console.log("Here is the transaction receipt: ");
   // console.log(transactionRecepit);
 
-  // Get Numnber
+  // Get Number
   const currentFavoriteNumber = await contract.retrieve();
   console.log(`Current Favorite Number: ${currentFavoriteNumber.toString()}`);
   const transactionResponse = await contract.store(7);
