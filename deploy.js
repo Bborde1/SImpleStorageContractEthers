@@ -2,6 +2,11 @@ const ethers = require("ethers")
 const fs = require("fs-extra")
 require("dotenv").config()
 
+//typescript import versions
+// import {ethers} from "ethers"
+// import * as fs from "fs-extra"
+// import "dotenv.config"
+
 async function main() {
     //compile them in code
     //compile separately
@@ -22,7 +27,8 @@ async function main() {
     const contractFactory = new ethers.ContractFactory(abi, binary, wallet)
     console.log("Deploying, please wait...")
     const contract = await contractFactory.deploy() //STOP here! Wait for contract to deploy
-    const transactionRecepit = await contract.deployTransaction.wait(1)
+    await contract.deployTransaction.wait(1)
+    console.log(`Contract Address: ${contract.address}`)
 
     //   console.log("Let's deploy with only transaction data!");
     //   const nonce = await wallet.getTransactionCount();
